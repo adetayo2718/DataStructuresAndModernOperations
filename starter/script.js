@@ -11,19 +11,78 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
   openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
+    thu: { open: 12, close: 22 },
+    fri: { open: 11, close: 23 },
     sat: {
-      open: 0, // Open 24 hours
-      close: 24,
+      open: 0, // Open 24 hours close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
+
+//Destructoring the object Data
+
+const { name, openingHours, categories } = restaurant;
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(name, openingHours, categories);
+
+//Destructoring the object Data with default values -> Working with data not known eg(api data)
+const { menu: ordermenu = [], starterMenu: starter = [] } = restaurant;
+console.log(ordermenu, starter);
+
+//Mutating variables while destructoring objects.
+let a = 111;
+let b = 222;
+const obj = { c: 27, d: 40, e: 60 };
+({ c: a, d: b } = obj);
+console.log(a, b);
+
+// //Destructoring the Array Data.
+
+// const arr = [2,3,4];
+//   const a = [0];
+//   const b = [1];
+//   const c = [2];
+// // OR
+//   const [x,y,z] = arr;
+//   console.log(x, y, z)
+
+// // Fetching data from the resturant data and destructing into smaller variables.
+//   let [main, , secondary] = restaurant.categories
+//   console.log(main, secondary);
+
+// // Swtiching variables (main value to secondary value ) vice-versa
+// //Using the traditional method
+//   // const temp = main;
+//   // main = secondary;
+//   // secondary = temp;
+//   // console.log(main, secondary)
+
+// // // Using destructoring method
+//   [secondary=1, main=1] = [main, secondary];
+//   console.log(main, secondary);
+
+// // Receiving and Destructoring 2 results from a function
+// console.log(restaurant.order(2 , 0));
+// const [starter=1, mainFood=1] = restaurant.order(2 , 0);
+// console.log(`${starter} and ${mainFood}`);
+//  // Destructoring 1 result from the above function
+//  const [ , mainFoodOnly] = restaurant.order(2 , 0);
+//  console.log(mainFoodOnly);
+
+// // Destructoring a Nested array -> Nested arrays are arrays inside another array
+// const Nested = [5,6,[7, 10]];
+// const [i, , [,k]] = Nested;
+// console.log(i, k);
+
+// //Default values
+// const [q='Not Found', r='Not Found', s='Not Found'] = [20, 22];
+// console.log(q,r,s);
