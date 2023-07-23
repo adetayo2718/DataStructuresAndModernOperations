@@ -22,7 +22,30 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({
+    time = '20:00',
+    address,
+    mainIndex = 0,
+    starterIndex = 1,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to your address '${address}' at ${time} today.`
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: '20:30',
+  address: '16 oluyole close, festact town',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  address: '16 oluyole close, festact town',
+  mainIndex: 2,
+});
 
 //Destructoring the object Data
 
@@ -44,6 +67,13 @@ let b = 222;
 const obj = { c: 27, d: 40, e: 60 };
 ({ c: a, d: b } = obj);
 console.log(a, b);
+
+// Destructoring a Nested Object
+console.log(hours);
+const {
+  thu: { open: o = [], close: c = [] },
+} = hours;
+console.log(o, c);
 
 // //Destructoring the Array Data.
 
