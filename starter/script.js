@@ -46,40 +46,83 @@ const restaurant = {
   },
 };
 
-//REST PATHERNS. Rest because its on the left side of the =
-//ARRAY
-// 1> --> Destructoring
-const [a, b, ...others] = [2, 3, 4, 5, 6, 10];
-console.log(a, b, others);
+// SHORT CIRCUITING (|| and &&)
+// (--- OR || ----)
+// The short circuiting OR || is used to display the first truthy operand or the last falsey operand if all operands are false. `***Operands are the values that an operator is executing. eg 2 + 3, 2 and 3 are the operands***`
+// ***TRUTHY operands are 12, ‘JOHNY’ true, ETC. while FALSEY operands are 0, null, undefined, false, etc.***
+// we can use the OR || operators to set default value
 
-//NOTICE THAT PASTA WAS NOT PICKED, THAT BECAUSE THE REST PATHERN WILL NOT PICK ANY SKIPPED ELEMENT.
-//the rest element must be the last element.
-const [mainCourse, , desert, ...otherCourse] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(mainCourse, desert, ...otherCourse);
+console.log(3 || 'JOHNY');
+console.log('' || 'JOHNY');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'HELLO' || 23 || null);
 
-//OBJECTS
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(sat, weekdays);
+restaurant.guestNum = 0;
+const guest1 = restaurant.guestNum ? restaurant.guestNum : 10;
+console.log(guest1);
 
-// 2> --> Functions
-const add = (...ishiro) => {
-  let sum = 0;
-  for (let i = 0; i < ishiro.length; i++) sum += ishiro[i];
-  console.log(sum);
-};
+const guest2 = restaurant.guestNum || 10;
+console.log(guest2);
 
-add(2, 3);
-add(7, 8, 9, 10, 15, 26);
-add(30, 50, 90, 92, 94, 96, 99);
+// (--- AND && ----)
+// The short circuiting && is used to display the first falsey value or the last truthy value if all the operands are true.
+// ***TRUTHY operands are 12, ‘JOHNY’ true, ETC. while FALSEY operands are “” ,0, null, undefined, false, etc.***
+// we can use the AND && operator to display the value of the second operand if the first value is true.
 
-// passing array to the function.
-let x = [24, 12, 21, 26, 42, 52];
-add(...x);
+console.log(0 && 'John');
+console.log(7 && 'John');
+console.log(7 && true && 'john' && 0);
 
-restaurant.orderPizza('Chilli & Tomattoes', 'cheese', 'Peperoni', 'Onion');
+if (restaurant.orderPizza) {
+  console.log(restaurant.orderPizza('mushroom', 'chilli'));
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'pizza');
+
+// NULLISH COALESCING
+// This operator was introdused in ES 2020. → Nullish value include undefined nd null (NOT 0 or “”)
+restaurant.guestNum = 0;
+const guestS = restaurant.guestNum || 10;
+console.log(guest2);
+
+const correctGuestNum = restaurant.guestNum ?? 10;
+console.log(correctGuestNum);
+
+// //REST PATHERNS. Rest because its on the left side of the =
+// //ARRAY
+// // 1> --> Destructoring
+// const [a, b, ...others] = [2, 3, 4, 5, 6, 10];
+// console.log(a, b, others);
+
+// //NOTICE THAT PASTA WAS NOT PICKED, THAT BECAUSE THE REST PATHERN WILL NOT PICK ANY SKIPPED ELEMENT.
+// //the rest element must be the last element.
+// const [mainCourse, , desert, ...otherCourse] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(mainCourse, desert, ...otherCourse);
+
+// //OBJECTS
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(sat, weekdays);
+
+// // 2> --> Functions
+// const add = (...ishiro) => {
+//   let sum = 0;
+//   for (let i = 0; i < ishiro.length; i++) sum += ishiro[i];
+//   console.log(sum);
+// };
+
+// add(2, 3);
+// add(7, 8, 9, 10, 15, 26);
+// add(30, 50, 90, 92, 94, 96, 99);
+
+// // passing array to the function.
+// let x = [24, 12, 21, 26, 42, 52];
+// add(...x);
+
+// restaurant.orderPizza('Chilli & Tomattoes', 'cheese', 'Peperoni', 'Onion');
 
 // //SPREAD OPERATORS
 // //Spreed operators take all elements of an array into another array. -> it logs the individual values independently
