@@ -46,48 +46,87 @@ const restaurant = {
   },
 };
 
-// SHORT CIRCUITING (|| and &&)
-// (--- OR || ----)
-// The short circuiting OR || is used to display the first truthy operand or the last falsey operand if all operands are false. `***Operands are the values that an operator is executing. eg 2 + 3, 2 and 3 are the operands***`
-// ***TRUTHY operands are 12, ‘JOHNY’ true, ETC. while FALSEY operands are 0, null, undefined, false, etc.***
-// we can use the OR || operators to set default value
+// The short circuting and nullish assignment operator.
 
-console.log(3 || 'JOHNY');
-console.log('' || 'JOHNY');
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || '' || 'HELLO' || 23 || null);
+const rest1 = {
+  name: 'LAPICANA',
+  // numGuest: 30,
+  numGuest: 0,
+};
+const rest2 = {
+  name: 'PANAM',
+  owner: 'AKANJI SAMUEL',
+};
 
-restaurant.guestNum = 0;
-const guest1 = restaurant.guestNum ? restaurant.guestNum : 10;
-console.log(guest1);
+// SETTING A DEFAULT VALUE FOR NUMBER OF GUEST.
+// (--- OR ---)
 
-const guest2 = restaurant.guestNum || 10;
-console.log(guest2);
+// rest1.numGuest = rest1.numGuest || 20;
+// rest2.numGuest = rest2.numGuest || 20;
 
-// (--- AND && ----)
-// The short circuiting && is used to display the first falsey value or the last truthy value if all the operands are true.
-// ***TRUTHY operands are 12, ‘JOHNY’ true, ETC. while FALSEY operands are “” ,0, null, undefined, false, etc.***
-// we can use the AND && operator to display the value of the second operand if the first value is true.
+//OR ASSINGMENT OPERATOR
+// rest1.numGuest ||= 20;
+// rest2.numGuest ||= 20;
 
-console.log(0 && 'John');
-console.log(7 && 'John');
-console.log(7 && true && 'john' && 0);
+// NULLISH ASSIGNMENT OPERATOR (null and undefined)
+rest1.numGuest ??= 20;
+rest2.numGuest ??= 20;
 
-if (restaurant.orderPizza) {
-  console.log(restaurant.orderPizza('mushroom', 'chilli'));
-}
+// //CHANGING THE VALUE OF OWNER NAME TO ANONYMOUS
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
 
-restaurant.orderPizza && restaurant.orderPizza('mushroom', 'pizza');
+//AND ASSINGMENT OPERATOR
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
 
-// NULLISH COALESCING
-// This operator was introdused in ES 2020. → Nullish value include undefined nd null (NOT 0 or “”)
-restaurant.guestNum = 0;
-const guestS = restaurant.guestNum || 10;
-console.log(guest2);
+console.log(rest1);
+console.log(rest2);
 
-const correctGuestNum = restaurant.guestNum ?? 10;
-console.log(correctGuestNum);
+// // SHORT CIRCUITING (|| and &&)
+// // (--- OR || ----)
+// // The short circuiting OR || is used to display the first truthy operand or the last falsey operand if all operands are false. `***Operands are the values that an operator is executing. eg 2 + 3, 2 and 3 are the operands***`
+// // ***TRUTHY operands are 12, ‘JOHNY’ true, ETC. while FALSEY operands are 0, null, undefined, false, etc.***
+// // we can use the OR || operators to set default value
+
+// console.log(3 || 'JOHNY');
+// console.log('' || 'JOHNY');
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || '' || 'HELLO' || 23 || null);
+
+// restaurant.guestNum = 0;
+// const guest1 = restaurant.guestNum ? restaurant.guestNum : 10;
+// console.log(guest1);
+
+// const guest2 = restaurant.guestNum || 10;
+// console.log(guest2);
+
+// // (--- AND && ----)
+// // The short circuiting && is used to display the first falsey value or the last truthy value if all the operands are true.
+// // ***TRUTHY operands are 12, ‘JOHNY’ true, ETC. while FALSEY operands are “” ,0, null, undefined, false, etc.***
+// // we can use the AND && operator to display the value of the second operand if the first value is true.
+
+// console.log(0 && 'John');
+// console.log(7 && 'John');
+// console.log(7 && true && 'john' && 0);
+
+// if (restaurant.orderPizza) {
+//   console.log(restaurant.orderPizza('mushroom', 'chilli'));
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('mushroom', 'pizza');
+
+// //
+
+// // NULLISH COALESCING
+// // This operator was introdused in ES 2020. → Nullish value include undefined nd null (NOT 0 or “”)
+// restaurant.guestNum = 0;
+// const guestS = restaurant.guestNum || 10;
+// console.log(guest2);
+
+// const correctGuestNum = restaurant.guestNum ?? 10;
+// console.log(correctGuestNum);
 
 // //REST PATHERNS. Rest because its on the left side of the =
 // //ARRAY
