@@ -5,36 +5,36 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+
+const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays[3]]: { open: 12, close: 22 },
+  fri: { open: 11, close: 23 },
+  sat: {
+    open: 0, // Open 24 hours close: 24,
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: { open: 12, close: 22 },
-    fri: { open: 11, close: 23 },
-    sat: {
-      open: 0, // Open 24 hours close: 24,
-    },
-  },
 
-  order: function (starterIndex, mainIndex) {
+  openingHours,
+
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({
-    time = '20:00',
-    address,
-    mainIndex = 0,
-    starterIndex = 1,
-  }) {
+  orderDelivery({ time = '20:00', address, mainIndex = 0, starterIndex = 1 }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to your address '${address}' at ${time} today.`
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is your delicious pizza with ${ing1}, ${ing2} and ${ing3}`
     );
@@ -46,42 +46,81 @@ const restaurant = {
   },
 };
 
-// The short circuting and nullish assignment operator.
+// OPTIONAL CHAINING?
+const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-const rest1 = {
-  name: 'LAPICANA',
-  // numGuest: 30,
-  numGuest: 0,
-};
-const rest2 = {
-  name: 'PANAM',
-  owner: 'AKANJI SAMUEL',
-};
+if (restaurant.openingHours && restaurant.openingHours.fri) {
+  console.log(restaurant.openingHours.fri.open);
+}
+// WITH OPTIONAL CHAINING
+console.log(restaurant.openingHours?.mon?.open);
 
-// SETTING A DEFAULT VALUE FOR NUMBER OF GUEST.
-// (--- OR ---)
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'close';
+  console.log(`On ${day} we're open at ${open}`);
+}
 
-// rest1.numGuest = rest1.numGuest || 20;
-// rest2.numGuest = rest2.numGuest || 20;
+// OPTIONAL CHAINING? WITH METHODS.
 
-//OR ASSINGMENT OPERATOR
-// rest1.numGuest ||= 20;
-// rest2.numGuest ||= 20;
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisoto?.(0, 1) ?? 'Method does not exist');
 
-// NULLISH ASSIGNMENT OPERATOR (null and undefined)
-rest1.numGuest ??= 20;
-rest2.numGuest ??= 20;
+// OPTIONAL CHAINING? with Arrays
+const users = [{ name: 'John', email: '123@aol.com' }];
 
-// //CHANGING THE VALUE OF OWNER NAME TO ANONYMOUS
-// rest1.owner = rest1.owner && '<ANONYMOUS>';
-// rest2.owner = rest2.owner && '<ANONYMOUS>';
+console.log(users[2]?.name ?? `The array is empty`);
 
-//AND ASSINGMENT OPERATOR
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
+// Advanced object litrals
+// 1. can define an object outside of the main obj and call it with the name onplay.
+// 2. functions are written differently
+// 3. property key can now be computed.
 
-console.log(rest1);
-console.log(rest2);
+// // THE FOR OF LOOP
+// const main = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(main);
+// for (const x of main) console.log(x);
+// for (const x of main.entries()) console.log(x);
+
+// for (const [i, el] of main.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
+
+// // The short circuting and nullish assignment operator.
+
+// const rest1 = {
+//   name: 'LAPICANA',
+//   // numGuest: 30,
+//   numGuest: 0,
+// };
+// const rest2 = {
+//   name: 'PANAM',
+//   owner: 'AKANJI SAMUEL',
+// };
+
+// // SETTING A DEFAULT VALUE FOR NUMBER OF GUEST.
+// // (--- OR ---)
+
+// // rest1.numGuest = rest1.numGuest || 20;
+// // rest2.numGuest = rest2.numGuest || 20;
+
+// //OR ASSINGMENT OPERATOR
+// // rest1.numGuest ||= 20;
+// // rest2.numGuest ||= 20;
+
+// // NULLISH ASSIGNMENT OPERATOR (null and undefined)
+// rest1.numGuest ??= 20;
+// rest2.numGuest ??= 20;
+
+// // //CHANGING THE VALUE OF OWNER NAME TO ANONYMOUS
+// // rest1.owner = rest1.owner && '<ANONYMOUS>';
+// // rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+// //AND ASSINGMENT OPERATOR
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
+
+// console.log(rest1);
+// console.log(rest2);
 
 // // SHORT CIRCUITING (|| and &&)
 // // (--- OR || ----)
