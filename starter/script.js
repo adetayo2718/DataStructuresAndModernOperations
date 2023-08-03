@@ -11,7 +11,8 @@ const openingHours = {
   [weekdays[3]]: { open: 12, close: 22 },
   fri: { open: 11, close: 23 },
   sat: {
-    open: 0, // Open 24 hours close: 24,
+    open: 0,
+    close: 24,
   },
 };
 
@@ -46,29 +47,52 @@ const restaurant = {
   },
 };
 
-// OPTIONAL CHAINING?
-const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
+//PROPERTY KEYS
+const property = Object.keys(openingHours);
+console.log(property);
 
-if (restaurant.openingHours && restaurant.openingHours.fri) {
-  console.log(restaurant.openingHours.fri.open);
+let open = `We are open on ${property.length} a week: `;
+//LOOPING OBJECTS & KEYS
+for (const days of property) {
+  open += `${days}, `;
 }
-// WITH OPTIONAL CHAINING
-console.log(restaurant.openingHours?.mon?.open);
+console.log(open);
 
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'close';
-  console.log(`On ${day} we're open at ${open}`);
+//PROPERTY VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+//ENTIRE OBJECT
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key}, we are open at ${open} and we close at ${close}`);
 }
 
-// OPTIONAL CHAINING? WITH METHODS.
+// // OPTIONAL CHAINING?
+// const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-console.log(restaurant.orderRisoto?.(0, 1) ?? 'Method does not exist');
+// if (restaurant.openingHours && restaurant.openingHours.fri) {
+//   console.log(restaurant.openingHours.fri.open);
+// }
+// // WITH OPTIONAL CHAINING
+// console.log(restaurant.openingHours?.mon?.open);
 
-// OPTIONAL CHAINING? with Arrays
-const users = [{ name: 'John', email: '123@aol.com' }];
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'close';
+//   console.log(`On ${day} we're open at ${open}`);
+// }
 
-console.log(users[2]?.name ?? `The array is empty`);
+// // OPTIONAL CHAINING? WITH METHODS.
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisoto?.(0, 1) ?? 'Method does not exist');
+
+// // OPTIONAL CHAINING? with Arrays
+// const users = [{ name: 'John', email: '123@aol.com' }];
+
+// console.log(users[2]?.name ?? `The array is empty`);
 
 // Advanced object litrals
 // 1. can define an object outside of the main obj and call it with the name onplay.
