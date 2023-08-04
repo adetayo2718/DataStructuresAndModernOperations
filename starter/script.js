@@ -11,8 +11,8 @@ const openingHours = {
   [weekdays[3]]: { open: 12, close: 22 },
   fri: { open: 11, close: 23 },
   sat: {
-    open: 0,
-    close: 24,
+    open: { open: 0 },
+    close: { close: 24 },
   },
 };
 
@@ -47,28 +47,57 @@ const restaurant = {
   },
 };
 
-//PROPERTY KEYS
-const property = Object.keys(openingHours);
-console.log(property);
+// const openDays = Object.keys(openingHours);
+// console.log(openDays);
+// let openStr = `We are open on ${openDays.length} days a week: `;
+// console.log(openStr);
 
-let open = `We are open on ${property.length} a week: `;
-//LOOPING OBJECTS & KEYS
-for (const days of property) {
-  open += `${days}, `;
-}
-console.log(open);
+// for (const days of openDays) {
+//   openStr += `${days}, `;
+// }
+// console.log(openStr);
 
-//PROPERTY VALUES
-const values = Object.values(openingHours);
-console.log(values);
+// let value = Object.values(openingHours);
+// console.log(value);
 
-//ENTIRE OBJECT
-const entries = Object.entries(openingHours);
-console.log(entries);
+// let ent = Object.entries(openingHours);
+// console.log(ent);
 
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key}, we are open at ${open} and we close at ${close}`);
-}
+// let display = ``;
+
+// for (const [
+//   key,
+//   {
+//     open: { open = 0 },
+//     close: { close = 0 },
+//   },
+// ] of ent) {
+//   display = `On ${key}, we are open at ${open}, and we are closing at ${close}`;
+//   console.log(display);
+// }
+
+// //PROPERTY KEYS
+// const property = Object.keys(openingHours);
+// console.log(property);
+
+// let open = `We are open on ${property.length} a week: `;
+// //LOOPING OBJECTS & KEYS
+// for (const days of property) {
+//   open += `${days}, `;
+// }
+// console.log(open);
+
+// //PROPERTY VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// //ENTIRE OBJECT
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key}, we are open at ${open} and we close at ${close}`);
+// }
 
 // // OPTIONAL CHAINING?
 // const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
