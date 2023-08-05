@@ -47,6 +47,50 @@ const restaurant = {
   },
 };
 
+// //SETS. UNIQUE VALUES => NO DUPLICATE.
+// const orderSet = new Set([
+//   'John',
+//   'Michael',
+//   'Ronke',
+//   'Michael',
+//   'Ronke',
+//   'John',
+//   'Ahmed',
+// ]);
+// console.log(orderSet);
+// const numStr = new Set('MUSTAFA');
+// console.log(numStr);
+// console.log(numStr.size);
+// console.log(numStr.has('F'));
+// console.log(numStr.has('Z'));
+// numStr.add('B');
+// numStr.add('Z');
+// console.log(...numStr);
+// numStr.delete('B');
+// numStr.delete('Z');
+// console.log(...numStr);
+// // numStr.clear();
+// console.log(numStr);
+
+// // Example.
+// const staff = [
+//   'Chef',
+//   'Waiter',
+//   'Cleaner',
+//   'Runner',
+//   'Waiter',
+//   'Manager',
+//   'Accontant',
+// ];
+// const staffSet = [...new Set(staff)];
+// console.log(staffSet);
+// console.log(staff);
+// console.log(new Set(staff).size);
+
+// //YOU CAN ALSO CHECK THE SIZE OF A STRING.
+// let x = 'ENCYCLOPEDIAMANIC';
+// console.log(new Set(x).size);
+
 // const openDays = Object.keys(openingHours);
 // console.log(openDays);
 // let openStr = `We are open on ${openDays.length} days a week: `;
