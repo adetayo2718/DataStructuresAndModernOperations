@@ -47,7 +47,33 @@ const restaurant = {
   },
 };
 
-// //SETS. UNIQUE VALUES => NO DUPLICATE.
+// // MAPS ~ OBJECT
+// const rest = new Map();
+// rest
+//   .set('name', 'Classica Italiano')
+//   .set(1, 'Firenze, Italy')
+//   .set(2, 'Lisbon, Portugal');
+
+// rest
+//   .set('Categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 22)
+//   .set(true, 'We are open :D')
+//   .set(false, 'We are closed :(');
+// console.log(rest);
+
+// const time = 22;
+// const openTime = rest.get(time > rest.get('open') && time <= rest.get('close'));
+// console.log(openTime);
+// let arr = [1, 2];
+// rest.set(arr, 'This is an array');
+// console.log(rest.get(arr));
+// rest.set(document.querySelector('h1'), 'This is landing');
+// console.log(rest.has('open'));
+// rest.delete(2);
+// console.log(rest);
+
+// //SETS ~ ARRAY. UNIQUE VALUES => NO DUPLICATE.
 // const orderSet = new Set([
 //   'John',
 //   'Michael',
