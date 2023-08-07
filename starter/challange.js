@@ -94,3 +94,15 @@
 // team1 < team2 && console.log(`Team 1 is likely to win`);
 // team1 > team2 && console.log(`Team 2 is likely to win`);
 // team1 == team2 && console.log(`Thers is likely to be a draw`);
+
+// const gameEvent = new Map([
+//   [81, 'goal'],
+//   [85, 'yellow card'],
+//   [86, 'red card'],
+//   [87, 'goal'],
+//   [89, 'yellow card'],
+//   [90, 'substitution'],
+// ]);
+// console.log(gameEvent);
+// const event = [...new Set(gameEvent.values())];
+// console.log(event);

@@ -47,6 +47,69 @@ const restaurant = {
   },
 };
 
+// STRING
+
+const airline = 'NIGERIA AIRWAYS LAGOS';
+const plan = 'MUS701';
+
+console.log(airline[0]);
+console.log('musa'[0]);
+
+console.log(airline.length);
+console.log('AGUNBIADE'.length);
+
+// STRING METHOD
+console.log(airline.indexOf('A'));
+console.log(airline.lastIndexOf('A'));
+console.log(airline.indexOf('LAGOS'));
+
+console.log(airline.slice(8));
+console.log(airline.slice(8, 15));
+
+// WORKING WITH UNKNOWN DATA
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(0, -1));
+
+// WORKING WITH A FUNCTION
+const checkSeatNumber = seat => {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got a middle seat');
+  else console.log('You got lucky');
+};
+
+checkSeatNumber('11B');
+checkSeatNumber('21C');
+checkSeatNumber('20E');
+
+console.log(typeof new String('DEBO'));
+console.log(typeof new String('DEBO').slice());
+
+// // MAP ITERATION
+
+// const question = new Map([
+//   ['question', 'What is the best programing language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'Javascript'],
+//   ['correct', 3],
+//   [true, 'Hurray!!!, your answer is correct'],
+//   [false, 'Oops, try again'],
+// ]);
+
+// // Quiz app
+
+// console.log(question);
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') {
+//     console.log(`Answer ${key}: ${value}`);
+//   }
+// }
+// const answer = Number(prompt('What is your answer?'));
+// console.log(question.get(question.get('correct') === answer));
+
 // // MAPS ~ OBJECT
 // const rest = new Map();
 // rest
