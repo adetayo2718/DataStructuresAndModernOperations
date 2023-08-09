@@ -106,3 +106,17 @@
 // console.log(gameEvent);
 // const event = [...new Set(gameEvent.values())];
 // console.log(event);
+
+// const animal = 'HIPOPOTAMOS WILL BE IN THE JUNGLE';
+
+// console.log(animal.slice(12));
+
+// console.log(typeof new String('AMAZING').slice());
+
+// const checkSeatNumber = x => {
+//   const s = x.slice(-1);
+//   if (s === 'B' || s === 'C') console.log('You have got the middle seat :(');
+//   else console.log('You got lucky:))');
+// };
+
+// checkSeatNumber('11A');

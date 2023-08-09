@@ -46,45 +46,91 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
-
-// STRING
+//WORKING WITH STRING METHODS||
 
 const airline = 'NIGERIA AIRWAYS LAGOS';
-const plan = 'MUS701';
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log(
+  'MusTy'.toLowerCase()[0].toUpperCase() + 'MusTy'.toLowerCase().slice(1)
+);
 
-console.log(airline[0]);
-console.log('musa'[0]);
+const correctPassengerName = str => {
+  console.log(str.toLowerCase()[0].toUpperCase() + str.toLowerCase().slice(1));
+};
+correctPassengerName('ADEREMILE');
 
-console.log(airline.length);
-console.log('AGUNBIADE'.length);
+//COMPAREING EMAIL.
 
-// STRING METHOD
-console.log(airline.indexOf('A'));
-console.log(airline.lastIndexOf('A'));
-console.log(airline.indexOf('LAGOS'));
+const email = 'adex@aol.ro';
+const loggedEmail = '  adex@aol.ro \n';
+console.log(email === loggedEmail);
 
-console.log(airline.slice(8));
-console.log(airline.slice(8, 15));
+const correctedEmail = loggedEmail.toLowerCase().trim();
+console.log(email === correctedEmail);
 
-// WORKING WITH UNKNOWN DATA
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
-
-console.log(airline.slice(0, -1));
-
-// WORKING WITH A FUNCTION
-const checkSeatNumber = seat => {
-  const s = seat.slice(-1);
-  if (s === 'B' || s === 'E') console.log('You got a middle seat');
-  else console.log('You got lucky');
+const correctEmails = (em, loggedEm) => {
+  const newLoggedEm = loggedEm.toLowerCase().trim();
+  if (newLoggedEm === em) console.log('You Please enter password');
+  else console.log('Enter a valid email');
 };
 
-checkSeatNumber('11B');
-checkSeatNumber('21C');
-checkSeatNumber('20E');
+const correctEmail = loggedEm => {
+  console.log(loggedEm.toLowerCase().trim());
+};
 
-console.log(typeof new String('DEBO'));
-console.log(typeof new String('DEBO').slice());
+correctEmail('aDEBULE@ARU.RU     ');
+correctEmails('adebule@aru.ru', 'aDEBULE@ARU.RU     \n');
+
+//REPLACING A STRING
+const priceGb = '#123';
+const priceUs = priceGb.replace('#', '$');
+console.log(priceUs);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+//To
+// // STRING
+
+// const airline = 'NIGERIA AIRWAYS LAGOS';
+// const plan = 'MUS701';
+
+// console.log(airline[0]);
+// console.log('musa'[0]);
+
+// console.log(airline.length);
+// console.log('AGUNBIADE'.length);
+
+// // STRING METHOD
+// console.log(airline.indexOf('A'));
+// console.log(airline.lastIndexOf('A'));
+// console.log(airline.indexOf('LAGOS'));
+
+// console.log(airline.slice(8));
+// console.log(airline.slice(8, 15));
+
+// // WORKING WITH UNKNOWN DATA
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// console.log(airline.slice(0, -1));
+
+// // WORKING WITH A FUNCTION
+// const checkSeatNumber = seat => {
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') console.log('You got a middle seat');
+//   else console.log('You got lucky');
+// };
+
+// checkSeatNumber('11B');
+// checkSeatNumber('21C');
+// checkSeatNumber('20E');
+
+// console.log(typeof new String('DEBO'));
+// console.log(typeof new String('DEBO').slice());
 
 // // MAP ITERATION
 
