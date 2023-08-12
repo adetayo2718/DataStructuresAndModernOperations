@@ -46,54 +46,117 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
-//WORKING WITH STRING METHODS||
 
-const airline = 'NIGERIA AIRWAYS LAGOS';
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
-console.log(
-  'MusTy'.toLowerCase()[0].toUpperCase() + 'MusTy'.toLowerCase().slice(1)
-);
+// // STRING ||| SPLIT -> ALLOWS US TO SPLIT A STRING TO MULTIPLE PARTS BASED ON A DIVIDER STRING
+// //The split will split the strings into an array and create multpile values seperated by a come.
 
-const correctPassengerName = str => {
-  console.log(str.toLowerCase()[0].toUpperCase() + str.toLowerCase().slice(1));
-};
-correctPassengerName('ADEREMILE');
+// //working with split.
+// const x = 'this+is+a+very+very+good+morning';
+// console.log(x.split('+'));
 
-//COMPAREING EMAIL.
+// const fullName = 'Adebowale Adetayo';
+// console.log(fullName);
+// const nameSplit = fullName.split(' ');
+// console.log(nameSplit);
+// const [firstName, lastName] = nameSplit;
+// console.log(firstName, lastName);
 
-const email = 'adex@aol.ro';
-const loggedEmail = '  adex@aol.ro \n';
-console.log(email === loggedEmail);
+// const nameUppper = ['Mr.', firstName, lastName.toUpperCase()];
+// console.log(nameUppper);
 
-const correctedEmail = loggedEmail.toLowerCase().trim();
-console.log(email === correctedEmail);
+// const nameJoin = nameUppper.join(' ');
+// const play = nameJoin.slice(nameJoin.lastIndexOf(' '));
+// console.log(nameJoin.slice(0, 13) + play.toLowerCase());
 
-const correctEmails = (em, loggedEm) => {
-  const newLoggedEm = loggedEm.toLowerCase().trim();
-  if (newLoggedEm === em) console.log('You Please enter password');
-  else console.log('Enter a valid email');
-};
+// const capitalizeName = name => {
+//   const nameJoin = [];
+//   const nameSplit = name.split(' ');
+//   // console.log(nameSplit);
 
-const correctEmail = loggedEm => {
-  console.log(loggedEm.toLowerCase().trim());
-};
+//   for (const n of nameSplit) {
+//     nameJoin.push(n.replace(n[0], n[0].toUpperCase()));
+//     // nameJoin.push(n[0].toUpperCase() + n.slice(1));
+//   }
+//   console.log(nameJoin.join(' '));
+// };
 
-correctEmail('aDEBULE@ARU.RU     ');
-correctEmails('adebule@aru.ru', 'aDEBULE@ARU.RU     \n');
+// capitalizeName('adebowale mustafa adetayo');
+// capitalizeName('adeola abosede adetayo');
+// capitalizeName('jamil oluwajomiloju adetayo');
 
-//REPLACING A STRING
-const priceGb = '#123';
-const priceUs = priceGb.replace('#', '$');
-console.log(priceUs);
+// //WORKING WITH STRING METHODS||
 
-const announcement =
-  'All passengers come to boarding door 23. Boarding door 23!';
+// const airline = 'NIGERIA AIRWAYS LAGOS';
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+// console.log(
+//   'MusTy'.toLowerCase()[0].toUpperCase() + 'MusTy'.toLowerCase().slice(1)
+// );
 
-console.log(announcement.replace('door', 'gate'));
-console.log(announcement.replaceAll('door', 'gate'));
-//To
-// // STRING
+// const correctPassengerName = str => {
+//   console.log(str.toLowerCase()[0].toUpperCase() + str.toLowerCase().slice(1));
+// };
+// correctPassengerName('ADEREMILE');
+
+// //COMPAREING EMAIL.
+
+// const email = 'adex@aol.ro';
+// const loggedEmail = '  adex@aol.ro \n';
+// console.log(email === loggedEmail);
+
+// const correctedEmail = loggedEmail.toLowerCase().trim();
+// console.log(email === correctedEmail);
+
+// const correctEmails = (em, loggedEm) => {
+//   const newLoggedEm = loggedEm.toLowerCase().trim();
+//   if (newLoggedEm === em) console.log('You Please enter password');
+//   else console.log('Enter a valid email');
+// };
+
+// const correctEmail = loggedEm => {
+//   console.log(loggedEm.toLowerCase().trim());
+// };
+
+// correctEmail('aDEBULE@ARU.RU     ');
+// correctEmails('adebule@aru.ru', 'aDEBULE@ARU.RU     \n');
+
+// //REPLACING A STRING
+// const priceGb = '#123';
+// const priceUs = priceGb.replace('#', '$');
+// console.log(priceUs);
+
+// const announcement =
+//   'All passengers come to boarding door 23. Boarding door 23!';
+
+// console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// // USING REGULAR EXPRESSION / /g, to do replace all.
+// console.log(announcement.replaceAll(/door/g, 'gate'));
+
+// //WORKING WITH METHODS THAT RETURNS BOOLEN
+// // 1. includes(). 2, startsWith(). 3, endsWith().
+
+// const plane = 'AB123neo';
+// console.log(plane.includes('AB'));
+// console.log(plane.startsWith('new'));
+// console.log(plane.endsWith('neo'));
+
+// //write a function that check baggages and check customers in.
+// const checkIn = items => {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('ciggarett'))
+//     console.log(`You can not board this flight`);
+//   else console.log('Wellcome aboard');
+// };
+
+// checkIn(`I have some perfumes, hand gel and a knIfE for protection.`);
+// checkIn(`I have some biscuits, and my laptop bag.`);
+// checkIn(
+//   `I have some rollers, and my carry on bag is compiled with a ciggarett.`
+// );
+
+// // // STRING
 
 // const airline = 'NIGERIA AIRWAYS LAGOS';
 // const plan = 'MUS701';
